@@ -13,13 +13,16 @@ if __name__ == '__main__':
 
     file = st.file_uploader('請選擇要上傳的文件:', type=['html'])
     
+    openF = False
+    
     if file is not None:
         html_content = file.read().decode('utf-8')
         #st.warning(html_content[:300])
+        openF = True
     
     col1, col2, col3, col4, col5 = st.columns(5)
     
-    if col1.button('轉換檔案'):
+    if col1.button('轉換檔案') and openF == True:
         # 使用BeautifulSoup解析HTML
         soup = BeautifulSoup(html_content, 'html.parser')
 
