@@ -17,7 +17,9 @@ if __name__ == '__main__':
         html_content = file.read().decode('utf-8')
         #st.warning(html_content[:300])
     
-    if st.button('轉換'):
+    col1, col2, col3, col4, col5 = st.columns(5)
+    
+    if col1.button('轉換'):
         # 使用BeautifulSoup解析HTML
         soup = BeautifulSoup(html_content, 'html.parser')
 
@@ -45,4 +47,4 @@ if __name__ == '__main__':
         #st.markdown(create_download_link(data, 'converted.xlsx'), unsafe_allow_html=True)
         
         with open('converted.xlsx', 'rb') as my_file:
-            st.download_button(label = '📥點此下載', data = my_file, file_name = 'converted.xlsx')    
+            col2.download_button(label = '📥點此下載', data = my_file, file_name = 'converted.xlsx')    
