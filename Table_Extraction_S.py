@@ -40,8 +40,11 @@ if __name__ == '__main__':
         # 將結果寫入Excel檔案
         combined_df.to_excel('converted.xlsx', index=False)
         
-        with open('converted.xlsx', 'rb') as f:
-            data = f.read()
+        #with open('converted.xlsx', 'rb') as f:
+        #    data = f.read()
 
         #顯示下載連結
-        st.markdown(create_download_link(data, 'converted.xlsx'), unsafe_allow_html=True)
+        #st.markdown(create_download_link(data, 'converted.xlsx'), unsafe_allow_html=True)
+        
+        with open('converted.xlsx', 'rb') as my_file:
+            st.download_button(label = '點此下載', data = my_file, file_name = 'converted.xlsx', mime = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')    
