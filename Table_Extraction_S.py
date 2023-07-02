@@ -19,7 +19,7 @@ if __name__ == '__main__':
     
     col1, col2, col3, col4, col5 = st.columns(5)
     
-    if col1.button('轉換'):
+    if col1.button('轉換檔案'):
         # 使用BeautifulSoup解析HTML
         soup = BeautifulSoup(html_content, 'html.parser')
 
